@@ -17,7 +17,8 @@
     "react-router-dom": "^5.2.0",
     "react_ujs": "^2.6.1",
     "remixicon": "^2.5.0",
-    "tailwind": "^2.0.0"
+    "tailwind": "^2.0.0",
+    "tailwindcss": "1.9.6"
   },
   "version": "0.1.0",
   "devDependencies": {

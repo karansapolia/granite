@@ -9,7 +9,7 @@ require("channels");
 import "../stylesheets/application.scss";
 
 var componentRequireContext = require.context("src", true);
-var ReactRailsUJS = require("require_ujs");
+var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -19,3 +19,4 @@ ReactRailsUJS.useContext(componentRequireContext);
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 // Support component names relative to this directory:
+import "../stylesheets/application.scss";
