@@ -7,6 +7,7 @@ import Dashboard from "components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
 import { registerIntercepts, setAuthHeaders } from "apis/axios.js";
 import ShowTask from "components/Tasks/ShowTask";
+import EditTask from "components/Tasks/EditTask";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact path="/" render={() => <div>Home</div>} />
         <Route exact path="/about" render={() => <div>About</div>} />
         <Route exact path="/tasks/:slug/show" component={ShowTask} />
+        <Route exact path="/tasks/:slug/edit" component={EditTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
         <Route exact path="/dashboard" component={Dashboard} />
       </Switch>
