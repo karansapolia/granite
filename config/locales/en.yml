@@ -33,6 +33,7 @@ en:
   hello: "Hello world"
 
 en:
+  successfully_created: "Task was successfully created!"
   task:
     slug:
       immutable: "is immutable!"
