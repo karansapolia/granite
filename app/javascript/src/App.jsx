@@ -6,6 +6,7 @@ import { initializeLogger } from "./common/logger";
 import Dashboard from "components/Dashboard";
 import CreateTask from "components/Tasks/CreateTask";
 import { registerIntercepts, setAuthHeaders } from "apis/axios.js";
+import ShowTask from "components/Tasks/ShowTask";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -24,8 +25,9 @@ const App = () => {
       <Switch>
         <Route exact path="/" render={() => <div>Home</div>} />
         <Route exact path="/about" render={() => <div>About</div>} />
-        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/tasks/:slug/show" component={ShowTask} />
         <Route exact path="/tasks/create" component={CreateTask} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </Switch>
     </Router>
   );
