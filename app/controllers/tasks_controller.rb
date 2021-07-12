@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     if task.save
-      render status: :ok, json: { notice: t('successfully_created') }
+      render status: :ok, json: { notice: t('successfully_created', entity: 'Task') }
     else
       errors = task.errors.full_messages.to_sentence
       render status: :unprocessable_entity, json: { errors: errors }
@@ -17,13 +17,12 @@ class TasksController < ApplicationController
   end
 
   def show
-    puts "task: ", @task
     render status: :ok, json: { task: @task }
   end
 
   def update
     if @task.update(task_params)
-      render status: :ok, json: { notice: 'Successfully updated task!' }
+      render status: :ok, json: { notice: t('successfully_updated', entity: 'Task') }
     else
       render status: :unprocessable_entity, json: { errors: @task.errors.full_messages.to_sentence }
     end
@@ -31,7 +30,7 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      render status: :ok, json: { notice: 'Successfully deleted task.' }
+      render status: :ok, json: { notice: t('successfully_deleted', entity: 'Task') }
     else
       render status: :unprocessable_entity, json: { errors: @task.errors.full_messages.to_sentence }
     end
