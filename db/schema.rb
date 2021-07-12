@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_07_12_102321) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string "name"
-    t.text "desc"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "tasks", force: :cascade do |t|
     t.text "title", null: false
     t.datetime "created_at", precision: 6, null: false
