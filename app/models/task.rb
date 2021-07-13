@@ -9,6 +9,7 @@ class Task < ApplicationRecord
   # before_save :change_title
   # after_save :change_title
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   def change_title
     self.title = "Pay electricity & TV bills"

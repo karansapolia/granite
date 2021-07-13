@@ -22,8 +22,9 @@ class TasksController < ApplicationController
 
   def show
     authorize @task
+    comments = @task.comments.order('created_at DESC')
     task_creator = User.find(@task.creator_id).name
-    render status: :ok, json: { task: @task, task_creator: task_creator, assigned_user: @task.user }
+    render status: :ok, json: { task: @task, task_creator: task_creator, comments: comments, assigned_user: @task.user }
   end
 
   def update
