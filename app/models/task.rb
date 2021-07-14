@@ -13,6 +13,14 @@ class Task < ApplicationRecord
   before_validation :print_set_title
   before_create :set_slug
 
+  def title_present
+    self.title.present?
+  end
+
+  def set_title
+    self.title = "Default task title"
+  end
+
   private
 
   def set_slug
