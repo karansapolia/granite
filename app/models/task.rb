@@ -1,31 +1,17 @@
 class Task < ApplicationRecord
-  before_validation :set_title, unless: :title_present
-  before_validation :print_set_title
+  enum progress: { pending: 0, completed: 1 }
+  enum status: { unstarred: 0, starred: 1 }
+
+  belongs_to :user
+  has_many :comments, dependent: :destroy
+
   validates :title, presence: true, length: { maximum: 50 }
   validates :slug, uniqueness: true
   validate :slug_not_changed
+
+  before_validation :set_title, unless: :title_present
+  before_validation :print_set_title
   before_create :set_slug
-
-  belongs_to :user
-  enum progress: { pending: 0, completed: 1 }
-  enum status: { unstarred: 0, starred: 1 }
-  has_many :comments, dependent: :destroy
-
-  def change_title
-    self.title = "Pay electricity & TV bills"
-  end
-
-  def title_present
-    self.title.present?
-  end
-
-  def set_title
-    self.title = "pay electricity bill"
-  end
-
-  def print_set_title
-    puts self.title
-  end
 
   private
 

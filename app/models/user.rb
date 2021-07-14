@@ -3,17 +3,20 @@ class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy, foreign_key: :user_id
   has_many :comments, dependent: :destroy
+
   has_secure_password
   has_secure_token :authentication_token
 
-  validates :email, presence: true,
-                    uniqueness: true,
-                    length: { maximum: 50 },
-                    format: { with: VALID_EMAIL_REGEX }
+  validates :email,
+            presence: true,
+            uniqueness: true,
+            length: { maximum: 50 },
+            format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, confirmation: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true, on: :create
 
   before_save :to_lowercase
+
 
   def test_user_should_be_not_be_valid_and_saved_without_email
     @user.email = ''
