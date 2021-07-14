@@ -4,11 +4,10 @@ class Task < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :slug, uniqueness: true
   validate :slug_not_changed
-
   before_create :set_slug
-  # before_save :change_title
-  # after_save :change_title
+
   belongs_to :user
+  enum progress: { pending: 0, completed: 1 }
   has_many :comments, dependent: :destroy
 
   def change_title
