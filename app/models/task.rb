@@ -8,6 +8,7 @@ class Task < ApplicationRecord
 
   belongs_to :user
   enum progress: { pending: 0, completed: 1 }
+  enum status: { unstarred: 0, starred: 1 }
   has_many :comments, dependent: :destroy
 
   def change_title
@@ -41,5 +42,11 @@ class Task < ApplicationRecord
 
   def slug_not_changed
     errors.add(:slug, t('task.slug.immutable')) if slug_changed? && persisted?
+  end
+
+  def self.inorder_of(progress)
+    starred = send(progress).starred.order('updated_at DESC')
+    unstarred = send(progress).unstarred.order('updated_at DESC')
+    starred + unstarred
   end
 end
