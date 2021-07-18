@@ -89,8 +89,13 @@ GEM
     diff-lcs (1.4.4)
     e2mmap (0.1.0)
     erubi (1.10.0)
+    et-orbi (1.2.4)
+      tzinfo
     execjs (2.8.1)
     ffi (1.15.3)
+    fugit (1.5.0)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.10)
@@ -102,6 +107,10 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -128,6 +137,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
+    raabro (1.4.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-proxy (0.7.0)
@@ -206,6 +216,9 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
+    sidekiq-cron (1.2.0)
+      fugit (~> 1.1)
+      sidekiq (>= 4.2.1)
     solargraph (0.42.3)
       backport (~> 1.2)
       benchmark
@@ -270,6 +283,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   jbuilder (~> 2.7)
+  letter_opener
   listen (~> 3.2)
   puma (~> 4.1)
   pundit
@@ -279,6 +293,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq
+  sidekiq-cron
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)
