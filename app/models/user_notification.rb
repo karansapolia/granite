@@ -2,8 +2,8 @@ class UserNotification < ApplicationRecord
   belongs_to :user
 
   validates :last_notification_sent_date, presence: true
-  validates :last_notification_sent_date_is_valid_date
-  validates :last_notification_sent_date_cannot_be_in_the_past
+  validate :last_notification_sent_date_is_valid_date
+  validate :last_notification_sent_date_cannot_be_in_the_past
 
   private
 

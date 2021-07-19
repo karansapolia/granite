@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i.freeze
 
-  has_many :suer_notifications, dependent: :destroy, foreign_key: :user_id
+  has_many :user_notifications, dependent: :destroy, foreign_key: :user_id
   has_one :preference, dependent: :destroy, foreign_key: :user_id
   has_many :tasks, dependent: :destroy, foreign_key: :user_id
   has_many :comments, dependent: :destroy
